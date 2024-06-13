@@ -42,7 +42,7 @@
         header("location: ../login.php");
     }
     
-
+    
     //import database
     include("../connection.php");
     $userrow = $database->query("select * from doctor where docemail='$useremail'");
