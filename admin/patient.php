@@ -55,7 +55,7 @@
                 </tr>
                 <tr class="menu-row">
                     <td class="menu-btn menu-icon-dashbord">
-                        <a href="index.php" class="non-style-link-menu"><div><p class="menu-text">Dasbor</p></div></a>
+                        <a href="index.php" class="non-style-link-menu"><div><p class="menu-text">Dashboard</p></div></a>
                     </td>
                 </tr>
                 <tr class="menu-row">
@@ -170,7 +170,7 @@
                                                 $pid=$row["pid"];
                                                 $name=$row["pname"];
                                                 $email=$row["pemail"];
-                                                $nic=$row["pnic"];
+                                                $nic=$row["pid"];
                                                 $dob=$row["pdob"];
                                                 $tel=$row["ptel"];
                                                 echo '<tr>
