@@ -551,7 +551,7 @@
                             <div class="popup">
                             <center>
                             <br><br><br><br>
-                                <h2>New Record Added Successfully!</h2>
+                                <h2>Berhasil!</h2>
                                 <a class="close" href="doctors.php">&times;</a>
                                 <div class="content">
                                     
@@ -730,7 +730,7 @@
                         <div class="popup">
                         <center>
                         <br><br><br><br>
-                            <h2>Edit Successfully!</h2>
+                            <h2>Edit Berhasil!</h2>
                             <a class="close" href="doctors.php">&times;</a>
                             <div class="content">
                                 
