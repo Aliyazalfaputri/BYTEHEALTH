@@ -274,98 +274,84 @@
             $name=$row["pname"];
             $email=$row["pemail"];
             $address=$row["paddress"];
-            
-           
             $dob=$row["pdob"];
             $tele=$row['ptel'];
             echo '
             <div id="popup1" class="overlay">
-                    <div class="popup">
+                <div class="popup" style="max-height: 80vh; overflow-y: auto;">
                     <center>
-                        <h2></h2>
-                        <a class="close" href="settings.php">&times;</a>
+                        <h2>Detail Informasi</h2>
+                        <a class="close" href="settings.php" style="position: absolute; top: 20px; right: 30px; font-size: 30px;">&times;</a>
                         <div class="content">
                             bytehealth Web App<br>
-                            
                         </div>
-                        <div style="display: flex;justify-content: center;">
-                        <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
-                        
-                            <tr>
-                                <td>
-                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Lihat Detail.</p><br><br>
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                
-                                <td class="label-td" colspan="2">
-                                    <label for="name" class="form-label">Nama: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    '.$name.'<br><br>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="Email" class="form-label">Email: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                '.$email.'<br><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="Tele" class="form-label">Telpon: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                '.$tele.'<br><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Alamat: </label>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                            <td class="label-td" colspan="2">
-                            '.$address.'<br><br>
-                            </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Tanggal Lahir: </label>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                            <td class="label-td" colspan="2">
-                            '.$dob.'<br><br>
-                            </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <a href="settings.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
-                                
-                                    
-                                </td>
-                
-                            </tr>
-                           
-
-                        </table>
+                        <div style="display: flex; justify-content: center;">
+                            <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0" style="max-height: 60vh; overflow-y: auto;">
+                                <tr>
+                                    <td>
+                                        <p style="padding: 0; margin: 0; text-align: left; font-size: 25px; font-weight: 500;">Lihat Detail.</p><br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="name" class="form-label">Nama: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        '.$name.'<br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="Email" class="form-label">Email: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        '.$email.'<br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="Tele" class="form-label">Telpon: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        '.$tele.'<br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="spec" class="form-label">Alamat: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        '.$address.'<br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="spec" class="form-label">Tanggal Lahir: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        '.$dob.'<br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <a href="settings.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn"></a>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </center>
                     <br><br>
-            </div>
+                </div>
             </div>
             ';
         }elseif($action=='edit'){
@@ -396,108 +382,98 @@
             if($error_1!='4'){
                     echo '
                     <div id="popup1" class="overlay">
-                            <div class="popup">
+                        <div class="popup" style="max-height: 80vh; overflow-y: auto; padding: 20px; box-sizing: border-box;">
                             <center>
-                            
-                                <a class="close" href="settings.php">&times;</a> 
-                                <div style="display: flex;justify-content: center;">
-                                <div class="abc">
-                                <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
-                                <tr>
-                                        <td class="label-td" colspan="2">'.
-                                            $errorlist[$error_1]
-                                        .'</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Ubah Detail Akun.</p>
-                                        User ID : '.$id.' (Auto Generated)<br><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <form action="edit-user.php" method="POST" class="add-new-form">
-                                            <label for="Email" class="form-label">Email: </label>
-                                            <input type="hidden" value="'.$id.'" name="id00">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                        <input type="hidden" name="oldemail" value="'.$email.'" >
-                                        <input type="email" name="email" class="input-text" placeholder="Email Address" value="'.$email.'" required><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        
-                                        <td class="label-td" colspan="2">
-                                            <label for="name" class="form-label">Nama: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="text" name="name" class="input-text" placeholder="Nama Dokter" value="'.$name.'" required><br>
-                                        </td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="Tele" class="form-label">Telpon: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="tel" name="Tele" class="input-text" placeholder="Nomor Telpon" value="'.$tele.'" required><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="spec" class="form-label">Alamat</label>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                        <input type="text" name="address" class="input-text" placeholder="Alamat" value="'.$address.'" required><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="password" class="form-label">Kata Sandi: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="password" name="password" class="input-text" placeholder="Tentukan Kata Sandi" required><br>
-                                        </td>
-                                    </tr><tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="cpassword" class="form-label">Konfirmasi Sandi: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="password" name="cpassword" class="input-text" placeholder="Konfirmasi Sandi" required><br>
-                                        </td>
-                                    </tr>
-                                    
-                        
-                                    <tr>
-                                        <td colspan="2">
-                                            <input type="reset" value="Atur Ulang" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        
-                                            <input type="submit" value="Simpan" class="login-btn btn-primary btn">
-                                        </td>
-                        
-                                    </tr>
-                                
-                                    </form>
-                                    </tr>
-                                </table>
-                                </div>
+                                <a class="close" href="settings.php" style="position: absolute; top: 20px; right: 30px; font-size: 30px;">&times;</a>
+                                <div style="display: flex; justify-content: center;">
+                                    <div class="abc" style="width: 100%; max-width: 800px;">
+                                        <table width="100%" class="sub-table scrolldown add-doc-form-container" border="0" style="max-height: 60vh; overflow-y: auto;">
+                                            <tr>
+                                                <td class="label-td" colspan="2">'.$errorlist[$error_1].'</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p style="padding: 0; margin: 0; text-align: left; font-size: 25px; font-weight: 500;">Ubah Detail Akun.</p>
+                                                    User ID: '.$id.' (Auto Generated)<br><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <form action="edit-user.php" method="POST" class="add-new-form">
+                                                        <label for="Email" class="form-label">Email: </label>
+                                                        <input type="hidden" value="'.$id.'" name="id00">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <input type="hidden" name="oldemail" value="'.$email.'">
+                                                    <input type="email" name="email" class="input-text" placeholder="Email Address" value="'.$email.'" required><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <label for="name" class="form-label">Nama: </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <input type="text" name="name" class="input-text" placeholder="Nama Dokter" value="'.$name.'" required><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <label for="Tele" class="form-label">Telpon: </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <input type="tel" name="Tele" class="input-text" placeholder="Nomor Telpon" value="'.$tele.'" required><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <label for="spec" class="form-label">Alamat</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <input type="text" name="address" class="input-text" placeholder="Alamat" value="'.$address.'" required><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <label for="password" class="form-label">Kata Sandi: </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <input type="password" name="password" class="input-text" placeholder="Tentukan Kata Sandi" required><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <label for="cpassword" class="form-label">Konfirmasi Sandi: </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-td" colspan="2">
+                                                    <input type="password" name="cpassword" class="input-text" placeholder="Konfirmasi Sandi" required><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <input type="reset" value="Atur Ulang" class="login-btn btn-primary-soft btn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="submit" value="Simpan" class="login-btn btn-primary btn">
+                                                </td>
+                                            </tr>
+                                        </form>
+                                        </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </center>
                             <br><br>
-                    </div>
+                        </div>
                     </div>
                     ';
         }else{
