@@ -277,7 +277,6 @@
             
            
             $dob=$row["pdob"];
-            $nic=$row['pnic'];
             $tele=$row['ptel'];
             echo '
             <div id="popup1" class="overlay">
@@ -318,16 +317,6 @@
                             <tr>
                                 <td class="label-td" colspan="2">
                                 '.$email.'<br><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="nic" class="form-label">NIC: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                '.$nic.'<br><br>
                                 </td>
                             </tr>
                             <tr>
@@ -392,7 +381,6 @@
             
             
             $address=$row["paddress"];
-            $nic=$row['pnic'];
             $tele=$row['ptel'];
 
             $error_1=$_GET["error"];
@@ -450,17 +438,6 @@
                                             <input type="text" name="name" class="input-text" placeholder="Nama Dokter" value="'.$name.'" required><br>
                                         </td>
                                         
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="nic" class="form-label">NIC: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="text" name="nic" class="input-text" placeholder="Nomor NIC" value="'.$nic.'" required><br>
-                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="label-td" colspan="2">
