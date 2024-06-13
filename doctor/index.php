@@ -72,7 +72,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <a href="../logout.php" ><input type="button" value="Log out" class="logout-btn btn-primary-soft btn"></a>
+                                    <a href="../logout.php" ><input type="button" value="Keluar" class="logout-btn btn-primary-soft btn"></a>
                                 </td>
                             </tr>
                     </table>
@@ -153,7 +153,7 @@
                     <table class="filter-container doctor-header" style="border: none;width:95%" border="0" >
                     <tr>
                         <td >
-                            <h3>Welcome!</h3>
+                            <h3>Selamat Datang!</h3>
                             <h1><?php echo $username  ?>.</h1>
                             <p>Terima kasih telah bergabung dengan ByteHealth. <br>
                             Kamu dapat melihat jadwal harianmu dan mengakses janji temu dari rumah!<br><br>
