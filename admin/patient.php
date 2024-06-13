@@ -70,7 +70,7 @@
                 </tr>
                 <tr class="menu-row">
                     <td class="menu-btn menu-icon-appoinment">
-                        <a href="appointment.php" class="non-style-link-menu"><div><p class="menu-text">Janji</p></div></a>
+                        <a href="appointment.php" class="non-style-link-menu"><div><p class="menu-text">Janji Temu</p></div></a>
                     </td>
                 </tr>
                 <tr class="menu-row">
@@ -84,7 +84,7 @@
             <table border="0" width="100%" style="border-spacing: 0;margin:0;padding:0;margin-top:25px;">
                 <tr>
                     <td width="13%">
-                        <a href="patient.php"><button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px"><font class="tn-in-text">Kembali</font></button></a>
+                        <a href="index.php"><button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px"><font class="tn-in-text">Kembali</font></button></a>
                     </td>
                     <td>
                         <form action="" method="post" class="header-search">
@@ -141,7 +141,6 @@
                                     <thead>
                                         <tr>
                                             <th class="table-headin">Nama</th>
-                                            <th class="table-headin">ID</th>
                                             <th class="table-headin">No HP</th>
                                             <th class="table-headin">Email</th>
                                             <th class="table-headin">Tanggal Lahir</th>
@@ -170,16 +169,12 @@
                                                 $pid=$row["pid"];
                                                 $name=$row["pname"];
                                                 $email=$row["pemail"];
-                                                $nic=$row["pid"];
                                                 $dob=$row["pdob"];
                                                 $tel=$row["ptel"];
                                                 echo '<tr>
                                                                                                     <td> &nbsp;'.
                                                     substr($name,0,35)
                                                     .'</td>
-                                                    <td>
-                                                    '.substr($nic,0,12).'
-                                                    </td>
                                                     <td>
                                                         '.substr($tel,0,10).'
                                                     </td>
