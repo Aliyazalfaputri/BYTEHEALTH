@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2024 at 03:08 PM
+-- Generation Time: Jun 13, 2024 at 05:57 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -60,8 +60,7 @@ CREATE TABLE `appointment` (
 
 INSERT INTO `appointment` (`appoid`, `pid`, `apponum`, `scheduleid`, `appodate`) VALUES
 (3, 3, 1, 10, '2024-06-06'),
-(2, 3, 1, 9, '2024-06-06'),
-(4, 6, 1, 13, '2024-06-06');
+(2, 3, 1, 9, '2024-06-06');
 
 -- --------------------------------------------------------
 
@@ -86,7 +85,12 @@ CREATE TABLE `doctor` (
 INSERT INTO `doctor` (`docid`, `docemail`, `docname`, `docpassword`, `docnic`, `doctel`, `specialties`) VALUES
 (4, 'abla@gmail.com', 'dr. Abla Ghanie, Sp.THT', '123', '1003004005', '0822349350', 3),
 (2, 'deeetttaaa@gmail.com', 'Drg. Deta Sari, Sp.BM', '123', '085156826366', '085156826366', 2),
-(3, 'angelina@gmail.com', 'Angelina Bangun, S.Ked', '123', '081030040', '0822349350', 1);
+(3, 'angelina@gmail.com', 'Angelina Bangun, S.Ked', '123', '081030040', '0822349350', 1),
+(5, 'iqbal123@gmail.com', 'Iqbal Maulana, S.Tr.Kes', '123', '100300403', '08134598764261', 5),
+(6, 'aditya12@gmail.com', 'Aditya Putra, S.Ked', '123', '1003004008', '089813746562', 1),
+(7, 'ika12@gmail.com', 'Ika Ratna, S.Keb.', '123', '1003004009', '089813746561', 6),
+(8, 'ivan@gmail.com', 'dr. Ivan Andrian', '123', '1003004010', '0822349351', 4),
+(9, 'mardiah@gmail.com', 'dr. Mardiah', '123', '1003004011', '0813459876426', 4);
 
 -- --------------------------------------------------------
 
@@ -143,8 +147,13 @@ INSERT INTO `schedule` (`scheduleid`, `docid`, `title`, `scheduledate`, `schedul
 (8, '1', '12', '2022-06-10', '13:33:00', 1),
 (12, '4', 'Poli THT', '2024-06-06', '09:00:00', 120),
 (14, '4', 'POLI THT', '2024-06-13', '18:00:00', 100),
-(15, '3', 'POLI UMUM 1', '2024-06-13', '18:01:00', 20),
-(16, '2', 'POLI GIGI DAN MULUT', '2024-06-13', '19:01:00', 20);
+(19, '6', 'POLI UMUM 1', '2024-06-14', '09:50:00', 50),
+(18, '3', 'POLI UMUM 2', '2024-06-14', '09:00:00', 50),
+(20, '2', 'POLI GIGI DAN MULUT', '2024-06-14', '10:00:00', 20),
+(21, '8', 'UGD SHIFT 1', '2024-06-14', '01:00:00', 50),
+(22, '7', 'POLI KIA', '2024-06-14', '09:00:00', 50),
+(23, '5', 'POLI LABORATORIUM', '2024-06-14', '09:00:00', 50),
+(24, '4', 'POLI THT', '2024-06-14', '09:00:00', 50);
 
 -- --------------------------------------------------------
 
@@ -194,7 +203,12 @@ INSERT INTO `webuser` (`email`, `usertype`) VALUES
 ('aliyazalfa151@gmail.com', 'p'),
 ('aliya186@gmail.com', 'p'),
 ('aliyaz18@gmail.com', 'p'),
-('angelina@gmail.com', 'd');
+('angelina@gmail.com', 'd'),
+('iqbal123@gmail.com', 'd'),
+('aditya12@gmail.com', 'd'),
+('ika12@gmail.com', 'd'),
+('ivan@gmail.com', 'd'),
+('mardiah@gmail.com', 'd');
 
 --
 -- Indexes for dumped tables
@@ -254,7 +268,7 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `docid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `docid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -266,7 +280,7 @@ ALTER TABLE `patient`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `scheduleid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `scheduleid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
