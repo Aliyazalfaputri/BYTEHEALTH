@@ -773,7 +773,7 @@
                         </tr>
                         <tr>
                             <td class="label-td" colspan="2">
-                                <label for="spec" class="form-label"><b>Pasien yang sudah terdaftar untuk sesi ini:</b> ('.$result12->num_rows."/".$nop.')</label>
+                                <label for="spec" class="form-label">Pasien yang sudah terdaftar untuk sesi ini:</label>
                                 <br><br>
                             </td>
                         </tr>
