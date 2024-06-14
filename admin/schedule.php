@@ -697,7 +697,7 @@
         $row=$result->fetch_assoc();
         $name=$row["docid"];
         $email=$row["title"];
-        $spe=$row["specialties"];
+        $spe=$row["scheduledate"];
         
         $spcil_res= $database->query("select sname from specialties where id='$spe'");
         $spcil_array= $spcil_res->fetch_assoc();
