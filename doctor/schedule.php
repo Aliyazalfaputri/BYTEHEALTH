@@ -349,14 +349,14 @@
                         
                             <tr>
                                 <td>
-                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">View Details.</p><br><br>
+                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Lihat Detail.</p><br><br>
                                 </td>
                             </tr>
                             
                             <tr>
                                 
                                 <td class="label-td" colspan="2">
-                                    <label for="name" class="form-label">Session Title: </label>
+                                    <label for="name" class="form-label">Nama Sesi: </label>
                                 </td>
                             </tr>
                             <tr>
@@ -367,7 +367,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="Email" class="form-label">Doctor of this session: </label>
+                                    <label for="Email" class="form-label">Dokter Disesi Ini: </label>
                                 </td>
                             </tr>
                             <tr>
@@ -377,7 +377,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="nic" class="form-label">Scheduled Date: </label>
+                                    <label for="nic" class="form-label">Tanggal: </label>
                                 </td>
                             </tr>
                             <tr>
@@ -387,7 +387,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="Tele" class="form-label">Scheduled Time: </label>
+                                    <label for="Tele" class="form-label">Waktu Janji: </label>
                                 </td>
                             </tr>
                             <tr>
@@ -397,7 +397,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label"><b>Patients that Already registerd for this session:</b> ('.$result12->num_rows."/".$nop.')</label>
+                                    <label for="spec" class="form-label"><b>Pasien yang sudah terdaftar untuk sesi ini:</b> ('.$result12->num_rows."/".$nop.')</label>
                                     <br><br>
                                 </td>
                             </tr>
@@ -443,8 +443,8 @@
                                              <img src="../img/notfound.svg" width="25%">
                                              
                                              <br>
-                                             <p class="heading-main12" style="margin-left: 45px;font-size:20px;color:rgb(49, 49, 49)">We  couldnt find anything related to your keywords !</p>
-                                             <a class="non-style-link" href="appointment.php"><button  class="login-btn btn-primary-soft btn"  style="display: flex;justify-content: center;align-items: center;margin-left:20px;">&nbsp; Show all Appointments &nbsp;</font></button>
+                                             <p class="heading-main12" style="margin-left: 45px;font-size:20px;color:rgb(49, 49, 49)">Kami tidak dapat menemukan apa pun yang terkait dengan kata kunci Anda!</p>
+                                             <a class="non-style-link" href="appointment.php"><button  class="login-btn btn-primary-soft btn"  style="display: flex;justify-content: center;align-items: center;margin-left:20px;">&nbsp; Tampilkan semua janji temu &nbsp;</font></button>
                                              </a>
                                              </center>
                                              <br><br><br><br>
