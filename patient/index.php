@@ -156,8 +156,8 @@
                             <h3>Selamat Datang!</h3>
                             <h1><?php echo $username  ?>.</h1>
                             <p>Selamat datang! Butuh informasi tentang dokter? Ayo kunjungi bagian 
-                                <a href="doctors.php" class="non-style-link"><b>"Semua Dokter"</b></a> atau 
-                                <a href="schedule.php" class="non-style-link"><b>"Sesi"</b> </a><br>
+                                <a href="doctors.php" class="non-style-link"><b>"Daftar Dokter"</b></a> atau 
+                                <a href="schedule.php" class="non-style-link"><b>"Jadwal Dokter"</b> </a><br>
                                 Di sini, Anda bisa melacak riwayat janji temu dan mengetahui perkiraan waktu kedatangan dokter atau konsultan medis Anda.<br><br>
                             </p>
                             
