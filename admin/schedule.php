@@ -692,111 +692,111 @@
             </div>
             ';  
     }elseif($action=='edit'){
-        $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  where  schedule.scheduleid=$id";
-        $result= $database->query($sqlmain);
-        $row=$result->fetch_assoc();
-        $docname=$row["docname"];
-        $scheduleid=$row["scheduleid"];
-        $title=$row["title"];
-        $scheduledate=$row["scheduledate"];
-        $scheduletime=$row["scheduletime"];
-        
-       
-        $nop=$row['nop'];
-
-
-        $sqlmain12= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.scheduleid=$id;";
-        $result12= $database->query($sqlmain12);
+        $sqlmain = "SELECT schedule.scheduleid, schedule.title, doctor.docname, schedule.scheduledate, schedule.scheduletime, schedule.nop 
+                    FROM schedule 
+                    INNER JOIN doctor ON schedule.docid=doctor.docid  
+                    WHERE schedule.scheduleid=$id";
+        $result = $database->query($sqlmain);
+        $row = $result->fetch_assoc();
+        $docname = $row["docname"];
+        $scheduleid = $row["scheduleid"];
+        $title = $row["title"];
+        $scheduledate = $row["scheduledate"];
+        $scheduletime = $row["scheduletime"];
+        $nop = $row['nop'];
+    
+        $sqlmain12 = "SELECT * FROM appointment 
+                      INNER JOIN patient ON patient.pid=appointment.pid 
+                      INNER JOIN schedule ON schedule.scheduleid=appointment.scheduleid 
+                      WHERE schedule.scheduleid=$id;";
+        $result12 = $database->query($sqlmain12);
         echo '
         <div id="popup1" class="overlay">
-                <div class="popup" style="width: 70%;">
+            <div class="popup" style="width: 70%;">
                 <center>
                     <h2></h2>
                     <a class="close" href="schedule.php">&times;</a>
-                    <div class="content">
-                        
-                        
-                    </div>
+                    <div class="content"></div>
                     <div class="abc scroll" style="display: flex;justify-content: center;">
-                    <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
-                    
-                        <tr>
-                            <td>
-                                <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Detail.</p><br><br>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            
-                            <td class="label-td" colspan="2">
-                                <label for="name" class="form-label">Nama Sesi: </label>
-                            </td>
-                        </tr>
-                        <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="text" name="name" class="input-text" placeholder="Nama Sesi" value="'.$title.'" required><br>
-                                        </td>
-                                        
-                                    </tr>
-                        <tr>
-                            <td class="label-td" colspan="2">
-                                <label for="Email" class="form-label">Dokter untuk sesi ini: </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label-td" colspan="2">
+                        <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <form action="edit-sesi.php" method="POST" class="add-new-form">
+                                        <label for="Email" class="form-label">Email: </label>
+                                        <input type="hidden" value="'.$id.'" name="id00">
+                                        <input type="hidden" name="oldemail" value="'.$email.'" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Detail.</p><br><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="name" class="form-label">Nama Sesi: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <input type="text" name="name" class="input-text" placeholder="Nama Sesi" value="'.$title.'" required><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="Email" class="form-label">Dokter untuk sesi ini: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
                                     <input type="text" name="dokter" class="input-text" placeholder="Dokter" value="'.$docname.'" required><br>
-                            </td>
-                                        
-                        </tr>
-                        <tr>
-                            <td class="label-td" colspan="2">
-                                <label for="nic" class="form-label">Tanggal Jadwal: </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label-td" colspan="2">
-                                 <input type="date" name="tanggal" class="input-text" placeholder="tanggal" value="'.$scheduledate.'" required><br>
-                            </td>
-                                        
-                        </tr>
-                        <tr>
-                            <td class="label-td" colspan="2">
-                                <label for="Tele" class="form-label">Waktu Jadwal: </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label-td" colspan="2">
-                                <input type="time" name="waktu" class="input-text" placeholder="Doctor Name" value="'.$scheduletime.'" required><br>
-                            </td>
-                                        
-                        </tr>
-                        <tr>
-                            <td class="label-td" colspan="2">
-                                <label for="spec" class="form-label">Pasien yang sudah terdaftar untuk sesi ini:</label>
-                                <br><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="label-td" colspan="2">
-                                <input type="number" name="jumlah" class="input-text" placeholder="jumlah maksimum" value="'.$nop.'" required><br>
-                            </td>          
-                        </tr>
-                        <tr>
-                            <td colspan="2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="nic" class="form-label">Tanggal Jadwal: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <input type="date" name="tanggal" class="input-text" placeholder="tanggal" value="'.$scheduledate.'" required><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="Tele" class="form-label">Waktu Jadwal: </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <input type="time" name="waktu" class="input-text" placeholder="Doctor Name" value="'.$scheduletime.'" required><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <label for="spec" class="form-label">Pasien yang sudah terdaftar untuk sesi ini:</label>
+                                    <br><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-td" colspan="2">
+                                    <input type="number" name="jumlah" class="input-text" placeholder="jumlah maksimum" value="'.$nop.'" required><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
                                     <input type="submit" value="Save" class="login-btn btn-primary btn">
-                            </td>
-                        
-                        </tr>
-
-                    </table>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </center>
                 <br><br>
+            </div>
         </div>
-        </div>
-        ';  
-}
+        ';
+    }
+    
 }
         
     ?>
