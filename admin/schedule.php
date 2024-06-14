@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/main.css">  
     <link rel="stylesheet" href="../css/admin.css">
         
-    <docid>Schedule</docid>
+    <title>Schedule</title>
     <style>
         .popup{
             animation: transitionIn-Y-bottom 0.5s;
@@ -52,8 +52,8 @@
                                     <img src="../img/user.png" alt="" width="100%" style="border-radius:50%">
                                 </td>
                                 <td style="padding:0px;margin:0px;">
-                                    <p class="profile-docid">Administrasi</p>
-                                    <p class="profile-subdocid">admin@bytehealth.com</p>
+                                    <p class="profile-title">Administrasi</p>
+                                    <p class="profile-subtitle">admin@bytehealth.com</p>
                                 </td>
                             </tr>
                             <tr>
@@ -169,11 +169,11 @@
                                 
                             <?php 
                             
-                                $list11 = $database->query("select  * from  doctor order by docid asc;");
+                                $list11 = $database->query("select  * from  doctor order by docname asc;");
 
                                 for ($y=0;$y<$list11->num_rows;$y++){
                                     $row00=$list11->fetch_assoc();
-                                    $sn=$row00["docid"];
+                                    $sn=$row00["docname"];
                                     $id00=$row00["docid"];
                                     echo "<option value=".$id00.">$sn</option><br/>";
                                 };
@@ -213,7 +213,7 @@
                         }
                         //echo $sqlpt2;
                         //echo $sqlpt1;
-                        $sqlmain= "select schedule.scheduleid,schedule.docid,doctor.docid,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid ";
+                        $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid ";
                         $sqllist=array($sqlpt1,$sqlpt2);
                         $sqlkeywords=array(" where "," and ");
                         $key2=0;
@@ -230,7 +230,7 @@
                         
                         //
                     }else{
-                        $sqlmain= "select schedule.scheduleid,schedule.docid,doctor.docid,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  order by schedule.scheduledate desc";
+                        $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  order by schedule.scheduledate desc";
 
                     }
 
@@ -300,17 +300,17 @@
                                 for ( $x=0; $x<$result->num_rows;$x++){
                                     $row=$result->fetch_assoc();
                                     $scheduleid=$row["scheduleid"];
-                                    $docid=$row["docid"];
-                                    $docid=$row["docid"];
+                                    $title=$row["title"];
+                                    $docname=$row["docname"];
                                     $scheduledate=$row["scheduledate"];
                                     $scheduletime=$row["scheduletime"];
                                     $nop=$row["nop"];
                                     echo '<tr>
                                         <td> &nbsp;'.
-                                        substr($docid,0,30)
+                                        substr($title,0,30)
                                         .'</td>
                                         <td>
-                                        '.substr($docid,0,20).'
+                                        '.substr($docname,0,20).'
                                         </td>
                                         <td style="text-align:center;">
                                             '.substr($scheduledate,0,10).' '.substr($scheduletime,0,5).'
@@ -325,7 +325,7 @@
                                         &nbsp;&nbsp;&nbsp;
                                         <a href="?action=view&id='.$scheduleid.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-view"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Lihat</font></button></a>
                                        &nbsp;&nbsp;&nbsp;
-                                       <a href="?action=drop&id='.$scheduleid.'&name='.$docid.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Hapus</font></button></a>
+                                       <a href="?action=drop&id='.$scheduleid.'&name='.$title.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Hapus</font></button></a>
                                         </div>
                                         </td>
                                     </tr>';
@@ -380,12 +380,12 @@
                             <tr>
                                 <td class="label-td" colspan="2">
                                 <form action="add-session.php" method="POST" class="add-new-form">
-                                    <label for="docid" class="form-label">Nama Sesi : </label>
+                                    <label for="title" class="form-label">Nama Sesi : </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <input type="text" name="docid" class="input-text" placeholder="Nama dari sesi ini" required><br>
+                                    <input type="text" name="title" class="input-text" placeholder="Nama dari sesi ini" required><br>
                                 </td>
                             </tr>
                             <tr>
@@ -400,11 +400,11 @@
                                     <option value="" disabled selected hidden>Pilih nama Dokter dari list</option><br/>';
                                         
         
-                                        $list11 = $database->query("select  * from  doctor order by docid asc;");
+                                        $list11 = $database->query("select  * from  doctor order by docname asc;");
         
                                         for ($y=0;$y<$list11->num_rows;$y++){
                                             $row00=$list11->fetch_assoc();
-                                            $sn=$row00["docid"];
+                                            $sn=$row00["docname"];
                                             $id00=$row00["docid"];
                                             echo "<option value=".$id00.">$sn</option><br/>";
                                         };
@@ -466,7 +466,7 @@
             </div>
             ';
         }elseif($action=='session-added'){
-            $docidget=$_GET["docid"];
+            $titleget=$_GET["title"];
             echo '
             <div id="popup1" class="overlay">
                     <div class="popup">
@@ -475,7 +475,7 @@
                         <h2>Sesi Dibuat.</h2>
                         <a class="close" href="schedule.php">&times;</a>
                         <div class="content">
-                        '.substr($docidget,0,40).' telah dijadwalkan.<br><br>
+                        '.substr($titleget,0,40).' telah dijadwalkan.<br><br>
                             
                         </div>
                         <div style="display: flex;justify-content: center;">
@@ -509,12 +509,12 @@
             </div>
             '; 
         }elseif($action=='view'){
-            $sqlmain= "select schedule.scheduleid,schedule.docid,doctor.docid,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  where  schedule.scheduleid=$id";
+            $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  where  schedule.scheduleid=$id";
             $result= $database->query($sqlmain);
             $row=$result->fetch_assoc();
-            $docid=$row["docid"];
+            $docname=$row["docname"];
             $scheduleid=$row["scheduleid"];
-            $docid=$row["docid"];
+            $title=$row["title"];
             $scheduledate=$row["scheduledate"];
             $scheduletime=$row["scheduletime"];
             
@@ -551,7 +551,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    '.$docid.'<br><br>
+                                    '.$title.'<br><br>
                                 </td>
                                 
                             </tr>
@@ -562,7 +562,7 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                '.$docid.'<br><br>
+                                '.$docname.'<br><br>
                                 </td>
                             </tr>
                             <tr>
@@ -692,188 +692,111 @@
             </div>
             ';  
     }elseif($action=='edit'){
-        $sqlmain= "select * from schedule where scheduleid='$id'";
+        $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  where  schedule.scheduleid=$id";
         $result= $database->query($sqlmain);
         $row=$result->fetch_assoc();
-        $name=$row["docid"];
-        $email=$row["title"];
-        $spe=$row["scheduledate"];
+        $docname=$row["docname"];
+        $scheduleid=$row["scheduleid"];
+        $title=$row["title"];
+        $scheduledate=$row["scheduledate"];
+        $scheduletime=$row["scheduletime"];
         
-        $spcil_res= $database->query("select sname from specialties where id='$spe'");
-        $spcil_array= $spcil_res->fetch_assoc();
-        $spcil_name=$spcil_array["sname"];
-        $nic=$row['docnic'];
-        $tele=$row['doctel'];
+       
+        $nop=$row['nop'];
 
-        $error_1=$_GET["error"];
-            $errorlist= array(
-                '1'=>'<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Already have an account for this Email address.</label>',
-                '2'=>'<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Password Conformation Error! Reconform Password</label>',
-                '3'=>'<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;"></label>',
-                '4'=>"",
-                '0'=>'',
 
-            );
-
-        if($error_1!='4'){
-                echo '
-                <div id="popup1" class="overlay">
-                        <div class="popup">
-                        <center>
-                        
-                            <a class="close" href="doctors.php">&times;</a> 
-                            <div style="display: flex;justify-content: center;">
-                            <div class="abc">
-                            <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
-                            <tr>
-                                    <td class="label-td" colspan="2">'.
-                                        $errorlist[$error_1]
-                                    .'</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Edit Detail Dokter.</p>
-                                    Doctor ID : '.$id.' (Auto Generated)<br><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <form action="edit-doc.php" method="POST" class="add-new-form">
-                                        <label for="Email" class="form-label">Email: </label>
-                                        <input type="hidden" value="'.$id.'" name="id00">
-                                        <input type="hidden" name="oldemail" value="'.$email.'" >
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                    <input type="email" name="email" class="input-text" placeholder="Email Address" value="'.$email.'" required><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td class="label-td" colspan="2">
-                                        <label for="name" class="form-label">Nama: </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <input type="text" name="name" class="input-text" placeholder="Doctor Name" value="'.$name.'" required><br>
-                                    </td>
-                                    
-                                </tr>
-                                
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <label for="nic" class="form-label">NIC: </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <input type="text" name="nic" class="input-text" placeholder="NIC Number" value="'.$nic.'" required><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <label for="Tele" class="form-label">No HP: </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <input type="tel" name="Tele" class="input-text" placeholder="Telephone Number" value="'.$tele.'" required><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <label for="spec" class="form-label">Pilih Specialis: (Current '.$spcil_name.')</label>
-                                        
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <select name="spec" id="" class="box">';
-                                            
-            
-                                            $list11 = $database->query("select  * from  specialties;");
-            
-                                            for ($y=0;$y<$list11->num_rows;$y++){
-                                                $row00=$list11->fetch_assoc();
-                                                $sn=$row00["sname"];
-                                                $id00=$row00["id"];
-                                                echo "<option value=".$id00.">$sn</option><br/>";
-                                            };
-            
-            
-            
-                                            
-                            echo     '       </select><br><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <label for="password" class="form-label">Password: </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <input type="password" name="password" class="input-text" placeholder="Defind a Password" required><br>
-                                    </td>
-                                </tr><tr>
-                                    <td class="label-td" colspan="2">
-                                        <label for="cpassword" class="form-label">Conform Password: </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label-td" colspan="2">
-                                        <input type="password" name="cpassword" class="input-text" placeholder="Conform Password" required><br>
-                                    </td>
-                                </tr>
-                                
-                    
-                                <tr>
-                                    <td colspan="2">
-                                        <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    
-                                        <input type="submit" value="Save" class="login-btn btn-primary btn">
-                                    </td>
-                    
-                                </tr>
-                            
-                                </form>
-                                </tr>
-                            </table>
-                            </div>
-                            </div>
-                        </center>
-                        <br><br>
-                </div>
-                </div>
-                ';
-    }else{
+        $sqlmain12= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.scheduleid=$id;";
+        $result12= $database->query($sqlmain12);
         echo '
-            <div id="popup1" class="overlay">
-                    <div class="popup">
-                    <center>
-                    <br><br><br><br>
-                        <h2>Edit Successfully!</h2>
-                        <a class="close" href="doctors.php">&times;</a>
-                        <div class="content">
-                            
-                            
-                        </div>
-                        <div style="display: flex;justify-content: center;">
+        <div id="popup1" class="overlay">
+                <div class="popup" style="width: 70%;">
+                <center>
+                    <h2></h2>
+                    <a class="close" href="schedule.php">&times;</a>
+                    <div class="content">
                         
-                        <a href="doctors.php" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"><font class="tn-in-text">&nbsp;&nbsp;OK&nbsp;&nbsp;</font></button></a>
+                        
+                    </div>
+                    <div class="abc scroll" style="display: flex;justify-content: center;">
+                    <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                    
+                        <tr>
+                            <td>
+                                <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Detail.</p><br><br>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            
+                            <td class="label-td" colspan="2">
+                                <label for="name" class="form-label">Nama Sesi: </label>
+                            </td>
+                        </tr>
+                        <tr>
+                                        <td class="label-td" colspan="2">
+                                            <input type="text" name="name" class="input-text" placeholder="Nama Sesi" value="'.$title.'" required><br>
+                                        </td>
+                                        
+                                    </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <label for="Email" class="form-label">Dokter untuk sesi ini: </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                    <input type="text" name="dokter" class="input-text" placeholder="Dokter" value="'.$docname.'" required><br>
+                            </td>
+                                        
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <label for="nic" class="form-label">Tanggal Jadwal: </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                 <input type="date" name="tanggal" class="input-text" placeholder="tanggal" value="'.$scheduledate.'" required><br>
+                            </td>
+                                        
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <label for="Tele" class="form-label">Waktu Jadwal: </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <input type="time" name="waktu" class="input-text" placeholder="Doctor Name" value="'.$scheduletime.'" required><br>
+                            </td>
+                                        
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <label for="spec" class="form-label"><b>Pasien yang sudah terdaftar untuk sesi ini:</b> ('.$result12->num_rows."/".$nop.')</label>
+                                <br><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-td" colspan="2">
+                                <input type="number" name="jumlah" class="input-text" placeholder="jumlah maksimum" value="'.$nop.'" required><br>
+                            </td>          
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                    <input type="submit" value="Save" class="login-btn btn-primary btn">
+                            </td>
+                        
+                        </tr>
 
-                        </div>
-                        <br><br>
-                    </center>
-            </div>
-            </div>
-';
-
-
-
-    }; };
+                    </table>
+                    </div>
+                </center>
+                <br><br>
+        </div>
+        </div>
+        ';  
+}
 }
         
     ?>
